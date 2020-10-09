@@ -9,14 +9,33 @@ GAME RULES:
 
 */
 
-var score, roundScore, activePlayer, dice;
+var score, roundScore, activePlayer;
 
 score = [0,0];
 roundScore = 0;
 activePlayer = 0;
 
-dice = Math.floor(Math.random() * 6 + 1);
-//console.log(dice);
+// ocultando o dado no inicio
+document.querySelector(".dice").style.display = "none";
+
+// zerando os contadores
+document.getElementById("score-0").textContent = "0";
+document.getElementById("score-1").textContent = "0";
+document.getElementById("current-0").textContent = "0";
+document.getElementById("current-1").textContent = "0";
+
+document.querySelector(".btn-play").addEventListener("click", function() {
+    // 1. gera um numero randon
+    var dice = Math.floor(Math.random() * 6 + 1);
+    // 2. mostra resultado
+    var diceDOM = document.querySelector(".dice");
+    diceDOM.style.display = "block";
+    diceDOM.src = "dado-" + dice + ".png";
+    console.log(dice);
+    // 3. altera o valor atual, se cair o '1' deve passar a vez para o outro player
+    document.querySelector("#current-" + activePlayer).textContent = dice;
+});
+
 
 // set value
 //document.querySelector("#current-" + activePlayer).textContent = dice;
@@ -25,5 +44,3 @@ dice = Math.floor(Math.random() * 6 + 1);
 // get value
 // x = document.querySelector("#current-0").textContent;
 // console.log(x);
-
-document.querySelector(".dice").style.display = "none";
