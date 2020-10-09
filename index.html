@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Jogo de dados</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="style.min.css">
+</head>
+<body>
+
+    <div class="background d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="row position-relative text-center text-uppercase">
+                <div class="col-6 p-8 bg-light player-0-panel active">
+                    <h1 class="font-weight-light" id="name-0">Player 1</h1>
+                    <h2 class="display-2 font-weight-lighter text-danger mb-5" id="score-0">43</h2>
+                    <div class="mt-5 bg-danger d-inline-block py-2 px-4">
+                        <p class="m-0 text-dark">Atual</p>
+                        <p class="text-white m-0 h1 font-weight-light" id="current-0">11</p>
+                    </div>
+                </div>
+                <div class="col-6 p-8 bg-white">
+                    <h1 class="font-weight-light player-1-panel" id="name-1">Player 2</h1>
+                    <h2 class="display-2 font-weight-lighter text-danger mb-5" id="score-1">72</h2>
+                    <div class="mt-5 bg-danger d-inline-block py-2 px-4">
+                        <p class="m-0 text-dark">Atual</p>
+                        <p class="text-white m-0 h1 font-weight-light" id="current-1">0</p>
+                    </div>
+                </div>
+                <div class="acoes">
+                    <p><button><i class="fas fa-plus text-danger"></i> Novo jogo</button></p>
+                    <img src="dado-5.png" class="dado d-block">  
+                    <p><button class="h4"><i class="fas fa-dice fa-2x text-danger d-block"></i> Jogar o dado</button></p>
+                    <p><button><i class="far fa-caret-square-down text-danger"></i> Passar a vez</button></p>         
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
