@@ -9,10 +9,10 @@ GAME RULES:
 
 */
 
-var score, scorePlayer, dado;
+var score, scorePlayer, dice;
 
 score = [0,0];
 scorePlayer = [0,0];
 
-dado = Math.floor(Math.random() * 6 + 1);
-console.log(dado);
+dice = Math.floor(Math.random() * 6 + 1);
+console.log(dice);

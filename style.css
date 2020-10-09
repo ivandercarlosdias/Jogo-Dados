@@ -16,14 +16,14 @@ body {
   padding: 80px 0;
 }
 
-.acoes {
+.actions {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.acoes button {
+.actions button {
   background: none;
   border: none;
   outline: none;
@@ -35,20 +35,20 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-.acoes button i {
+.actions button i {
   transition: all 250ms;
   margin-right: 5px;
 }
 
-.acoes button:hover {
+.actions button:hover {
   font-weight: 600;
 }
 
-.acoes button:not(.h4):hover i {
+.actions button:not(.h4):hover i {
   margin-right: 15px;
 }
 
-.acoes .dado {
+.actions .dice {
   width: 100px;
   height: 100px;
   margin: 80px auto;
