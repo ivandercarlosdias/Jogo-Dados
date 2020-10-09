@@ -25,15 +25,32 @@ document.getElementById("current-0").textContent = "0";
 document.getElementById("current-1").textContent = "0";
 
 document.querySelector(".btn-play").addEventListener("click", function() {
+
     // 1. gera um numero randon
     var dice = Math.floor(Math.random() * 6 + 1);
+
     // 2. mostra resultado
     var diceDOM = document.querySelector(".dice");
     diceDOM.style.display = "block";
     diceDOM.src = "dado-" + dice + ".png";
     console.log(dice);
-    // 3. altera o valor atual, se cair o '1' deve passar a vez para o outro player
-    document.querySelector("#current-" + activePlayer).textContent = dice;
+    
+    // 3. altera o valor atual SE o numero do dado não for 1
+    if (dice !== 1) {
+        // Aadiciona a pontuação 
+        roundScore += dice;
+        roundScore;
+        document.querySelector("#current-" + activePlayer).textContent = roundScore;
+    } else {
+        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+        roundScore = 0;
+        document.getElementById("current-0").textContent = "0";
+        document.getElementById("current-1").textContent = "0";
+        document.querySelector('.player-0').classList.toogle("active");
+        document.querySelector('.player-1').classList.toogle("active");
+        //document.querySelector(".dice").style.display = "none";
+    }
+    
 });
 
 
