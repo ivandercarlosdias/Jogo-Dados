@@ -52,12 +52,3 @@ document.querySelector(".btn-play").addEventListener("click", function() {
     }
     
 });
-
-
-// set value
-//document.querySelector("#current-" + activePlayer).textContent = dice;
-//document.querySelector("#current-" + activePlayer).innerHTML = "<em>" + dice + "</em>";
-
-// get value
-// x = document.querySelector("#current-0").textContent;
-// console.log(x);
