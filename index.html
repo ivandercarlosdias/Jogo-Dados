@@ -10,35 +10,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="style.min.css">
 </head>
-<body>
+<body class="d-flex align-items-center justify-content-center">
 
-    <div class="background d-flex align-items-center justify-content-center">
-        <div class="container bg-white">
-            <div class="row position-relative text-center text-uppercase">
-                <div class="col-6 p-8 player-0 active">
-                    <h1 class="font-weight-light player-name" id="name-0">Player 1</h1>
-                    <h2 class="display-2 font-weight-lighter text-danger mb-5" id="score-0">43</h2>
-                    <div class="mt-5 bg-danger d-inline-block py-2 px-4">
-                        <p class="m-0 text-dark">Atual</p>
-                        <p class="text-white m-0 h1 font-weight-light" id="current-0">11</p>
-                    </div>
+    <div class="container bg-white">
+        <div class="row position-relative text-center text-uppercase">
+            <div class="col-6 p-5 player-0 active">
+                <h1 class="player-name" id="name-0">Player 1</h1>
+                <h2 class="display-2 font-weight-lighter text-danger mb-5" id="score-0">43</h2>
+                <div class="mt-5 bg-danger d-inline-block py-2 px-4">
+                    <p class="m-0 text-dark">Atual</p>
+                    <p class="text-white m-0 h1" id="current-0">11</p>
                 </div>
-                <div class="col-6 p-8 player-1">
-                    <h1 class="font-weight-light player-name" id="name-1">Player 2</h1>
-                    <h2 class="display-2 font-weight-lighter text-danger mb-5" id="score-1">72</h2>
-                    <div class="mt-5 bg-danger d-inline-block py-2 px-4">
-                        <p class="m-0 text-dark">Atual</p>
-                        <p class="text-white m-0 h1 font-weight-light" id="current-1">0</p>
-                    </div>
+            </div>
+            <div class="col-6 p-5 player-1">
+                <h1 class="player-name" id="name-1">Player 2</h1>
+                <h2 class="display-2 font-weight-lighter text-danger mb-5" id="score-1">72</h2>
+                <div class="mt-5 bg-danger d-inline-block py-2 px-4">
+                    <p class="m-0 text-dark">Atual</p>
+                    <p class="text-white m-0 h1" id="current-1">0</p>
                 </div>
-                <div class="actions">
-                    <p><button class="btn-new"><i class="fas fa-plus text-danger"></i> Novo jogo</button></p>
-                    <div class="dice-content">
-                        <img src="dado-5.png" class="dice">
-                    </div>  
-                    <p><button class="btn-play h4"><i class="fas fa-dice fa-2x text-danger d-block"></i> Jogar o dado</button></p>
-                    <p><button class="btn-hold">Passar a vez</button></p>         
-                </div>
+            </div>
+            <div class="actions">
+                <p><button class="btn-new"><i class="fas fa-plus text-danger"></i> Novo jogo</button></p>
+                <div class="dice-content">
+                    <img src="dado-5.png" class="dice">
+                </div>  
+                <h3><button class="btn-play"><!-- <i class="fas fa-dice fa-2x text-danger d-block"></i> --> Jogar o dado</button></h3>
+                <h5><button class="btn-hold">Passar a vez</button></h5>         
             </div>
         </div>
     </div>

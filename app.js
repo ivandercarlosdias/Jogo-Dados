@@ -1,16 +1,17 @@
 /*
-GAME RULES:
 
-- The game has 2 players, playing in rounds
-- In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score
-- BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
-- The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn
-- The first player to reach 100 points on GLOBAL score wins the game
+Regras do jogo:
+
+- O jogo tem 2 jogadores, jogando em turnos
+- Em cada turno, o jogador joga o dado quantas vezes quiser. Cada resultado é adicionado a sua pontuação da rodada
+- MAS, se o dado cair com o n° 1, todo os pontos da rodada será perdido e passará a vez para o outro jogador
+- O jogador pode escolher "Passa a vez", que adicionará os pontos da rodada a seu placar e passará a vez para o outro jogador
+- O primeiro jogador que alcançar 100 pontos no placar ganha o jogo
 
 */
 
+// declarando variaveis
 var score, roundScore, activePlayer;
-
 score = [0,0];
 roundScore = 0;
 activePlayer = 0;
@@ -24,31 +25,52 @@ document.getElementById("score-1").textContent = "0";
 document.getElementById("current-0").textContent = "0";
 document.getElementById("current-1").textContent = "0";
 
+// jogar o dado
 document.querySelector(".btn-play").addEventListener("click", function() {
-
     // 1. gera um numero randon
     var dice = Math.floor(Math.random() * 6 + 1);
-
     // 2. mostra resultado
     var diceDOM = document.querySelector(".dice");
     diceDOM.style.display = "block";
     diceDOM.src = "dado-" + dice + ".png";
-    console.log(dice);
-    
     // 3. altera o valor atual SE o numero do dado não for 1
     if (dice !== 1) {
-        // Aadiciona a pontuação 
+        // adiciona valor na pontuação atual
         roundScore += dice;
         roundScore;
         document.querySelector("#current-" + activePlayer).textContent = roundScore;
     } else {
-        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-        roundScore = 0;
-        document.getElementById("current-0").textContent = "0";
-        document.getElementById("current-1").textContent = "0";
-        document.querySelector('.player-0').classList.toogle("active");
-        document.querySelector('.player-1').classList.toogle("active");
-        //document.querySelector(".dice").style.display = "none";
+        // passa a vez
+        nextPlayer();        
     }
-    
 });
+
+// botão passar a vez
+document.querySelector(".btn-hold").addEventListener("click", function(){
+    // adiciona valor da pontuação atual no placar do jogo
+    score[activePlayer] += roundScore;
+    document.querySelector("#score-" + activePlayer).textContent = score[activePlayer];
+    // verifica se o jogador venceu o jogo
+    if (score[activePlayer] >= 10 ) {
+        document.querySelector("#name-" + activePlayer).textContent = "VENCEDOR";
+        document.querySelector(".dice").style.display = "none";
+        document.querySelector(".player-" + activePlayer).classList.add("winner", "text-success");
+        document.querySelector(".dice").style.display = "none";
+    } else {
+        // passa a vez
+        nextPlayer();
+    }
+
+});
+
+// função para passar a vez para o outro jogador
+function nextPlayer() {
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+    // zerando valores da pontuação atual e ocultando o dado
+    roundScore = 0;
+    document.getElementById("current-0").textContent = "0";
+    document.getElementById("current-1").textContent = "0";
+    document.querySelector(".player-0").classList.toggle("active");
+    document.querySelector(".player-1").classList.toggle("active");
+    document.querySelector(".dice").style.display = "none";
+};
