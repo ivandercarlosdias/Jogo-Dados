@@ -12,18 +12,12 @@ Regras do jogo:
 
 // declarando variaveis
 var score, roundScore, activePlayer;
-score = [0,0];
-roundScore = 0;
-activePlayer = 0;
 
-// ocultando o dado no inicio
-document.querySelector(".dice").style.display = "none";
+// ao atingir esse valor o jogador vence
+var winnerScore = 10;
 
-// zerando os contadores
-document.getElementById("score-0").textContent = "0";
-document.getElementById("score-1").textContent = "0";
-document.getElementById("current-0").textContent = "0";
-document.getElementById("current-1").textContent = "0";
+// ao carregar a página, chamo a função init para definir os valores defaults das variáveis
+init();
 
 // jogar o dado
 document.querySelector(".btn-play").addEventListener("click", function() {
@@ -51,17 +45,50 @@ document.querySelector(".btn-hold").addEventListener("click", function(){
     score[activePlayer] += roundScore;
     document.querySelector("#score-" + activePlayer).textContent = score[activePlayer];
     // verifica se o jogador venceu o jogo
-    if (score[activePlayer] >= 10 ) {
+    if (score[activePlayer] >= winnerScore ) {
         document.querySelector("#name-" + activePlayer).textContent = "VENCEDOR";
         document.querySelector(".dice").style.display = "none";
-        document.querySelector(".player-" + activePlayer).classList.add("winner", "text-success");
+        document.querySelector(".player-" + activePlayer).classList.add("winner","text-danger");
+        document.querySelector(".player-" + activePlayer).classList.remove("active");
         document.querySelector(".dice").style.display = "none";
+        
+        //testando
+        document.querySelector(".btn-play").disabled = "true";
+        document.querySelector(".btn-hold").disabled = "true";
     } else {
         // passa a vez
         nextPlayer();
     }
 
 });
+
+// botão novo jogo
+document.querySelector(".btn-new").addEventListener("click", init);
+
+function init() {
+    // valores default variáveis
+    score = [0,0];
+    roundScore = 0;
+    activePlayer = 0;
+
+    // ocultando o dado no inicio
+    document.querySelector(".dice").style.display = "none";
+
+    // zerando os contadores
+    document.getElementById("score-0").textContent = "0";
+    document.getElementById("score-1").textContent = "0";
+    document.getElementById("current-0").textContent = "0";
+    document.getElementById("current-1").textContent = "0";
+
+    // removendo classes e voltando textos
+    document.querySelector("#name-0").textContent = "Player 1";
+    document.querySelector("#name-1").textContent = "Player 2";
+    document.querySelector(".player-0").classList.remove("winner","text-danger");
+    document.querySelector(".player-1").classList.remove("winner","text-danger");
+    document.querySelector(".player-0").classList.remove("active");
+    document.querySelector(".player-1").classList.remove("active");
+    document.querySelector(".player-0").classList.add("active");
+};
 
 // função para passar a vez para o outro jogador
 function nextPlayer() {
