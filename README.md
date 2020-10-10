@@ -1,8 +1,9 @@
-# dice-game
+# Jogo de Dados feito com JS
 
-GAME RULES:
-- The game has 2 players, playing in rounds
-- In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score
-- BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
-- The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn
-- The first player to reach 100 points on GLOBAL score wins the game
+Regras do jogo:
+
+- O jogo tem 2 jogadores, jogando em turnos
+- Em cada turno, o jogador joga o dado quantas vezes quiser. Cada resultado é adicionado a sua pontuação da rodada
+- MAS, se o dado cair com o n° 1, todo os pontos da rodada será perdido e passará a vez para o outro jogador
+- O jogador pode escolher "Passa a vez", que adicionará os pontos da rodada a seu placar e passará a vez para o outro jogador
+- O primeiro jogador que alcançar 100 pontos no placar ganha o jogo
