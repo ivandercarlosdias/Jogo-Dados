@@ -70,6 +70,7 @@ function init() {
     score = [0,0];
     roundScore = 0;
     activePlayer = 0;
+    gamePlaying = true;
 
     // ocultando o dado no inicio
     document.querySelector(".dice").style.display = "none";
