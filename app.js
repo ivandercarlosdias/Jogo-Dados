@@ -14,7 +14,7 @@ Regras do jogo:
 var score, roundScore, activePlayer, gamePlaying;
 
 // ao atingir esse valor o jogador vence
-var winnerScore = 10;
+var winnerScore = 100;
 
 // ao carregar a página, chamo a função init para definir os valores defaults das variáveis
 init();
