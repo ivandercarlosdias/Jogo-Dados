@@ -11,7 +11,7 @@ Regras do jogo:
 */
 
 // declarando variaveis
-var score, roundScore, activePlayer;
+var score, roundScore, activePlayer, gamePlaying;
 
 // ao atingir esse valor o jogador vence
 var winnerScore = 10;
@@ -21,45 +21,45 @@ init();
 
 // jogar o dado
 document.querySelector(".btn-play").addEventListener("click", function() {
-    // 1. gera um numero randon
-    var dice = Math.floor(Math.random() * 6 + 1);
-    // 2. mostra resultado
-    var diceDOM = document.querySelector(".dice");
-    diceDOM.style.display = "block";
-    diceDOM.src = "dado-" + dice + ".png";
-    // 3. altera o valor atual SE o numero do dado não for 1
-    if (dice !== 1) {
-        // adiciona valor na pontuação atual
-        roundScore += dice;
-        roundScore;
-        document.querySelector("#current-" + activePlayer).textContent = roundScore;
-    } else {
-        // passa a vez
-        nextPlayer();        
+    if (gamePlaying) {
+        // 1. gera um numero randon
+        var dice = Math.floor(Math.random() * 6 + 1);
+        // 2. mostra resultado
+        var diceDOM = document.querySelector(".dice");
+        diceDOM.style.display = "block";
+        diceDOM.src = "dado-" + dice + ".png";
+        // 3. altera o valor atual SE o numero do dado não for 1
+        if (dice !== 1) {
+            // adiciona valor na pontuação atual
+            roundScore += dice;
+            roundScore;
+            document.querySelector("#current-" + activePlayer).textContent = roundScore;
+        } else {
+            // passa a vez
+            nextPlayer();        
+        }
     }
 });
 
 // botão passar a vez
 document.querySelector(".btn-hold").addEventListener("click", function(){
-    // adiciona valor da pontuação atual no placar do jogo
-    score[activePlayer] += roundScore;
-    document.querySelector("#score-" + activePlayer).textContent = score[activePlayer];
-    // verifica se o jogador venceu o jogo
-    if (score[activePlayer] >= winnerScore ) {
-        document.querySelector("#name-" + activePlayer).textContent = "VENCEDOR";
-        document.querySelector(".dice").style.display = "none";
-        document.querySelector(".player-" + activePlayer).classList.add("winner","text-danger");
-        document.querySelector(".player-" + activePlayer).classList.remove("active");
-        document.querySelector(".dice").style.display = "none";
-        
-        //testando
-        document.querySelector(".btn-play").disabled = "true";
-        document.querySelector(".btn-hold").disabled = "true";
-    } else {
-        // passa a vez
-        nextPlayer();
+    if (gamePlaying) {
+        // adiciona valor da pontuação atual no placar do jogo
+        score[activePlayer] += roundScore;
+        document.querySelector("#score-" + activePlayer).textContent = score[activePlayer];
+        // verifica se o jogador venceu o jogo
+        if (score[activePlayer] >= winnerScore ) {
+            document.querySelector("#name-" + activePlayer).textContent = "VENCEDOR";
+            document.querySelector(".dice").style.display = "none";
+            document.querySelector(".player-" + activePlayer).classList.add("winner","text-danger");
+            document.querySelector(".player-" + activePlayer).classList.remove("active");
+            document.querySelector(".dice").style.display = "none";
+            gamePlaying = false;
+        } else {
+            // passa a vez
+            nextPlayer();
+        } 
     }
-
 });
 
 // botão novo jogo
