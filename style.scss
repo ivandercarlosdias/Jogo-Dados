@@ -1,15 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 body {
-    font-family: "Lato";
-    color: #757575;
-    background-image: linear-gradient(rgba(126, 62, 62, .4), rgba(139, 91, 91, .2)), url('background.jpg');
+    font-family: "Nunito";
+    color: #333;
+    background-image: radial-gradient( circle 1294px at -15.5% 23.8%,  rgba(255,206,149,1) 0%, rgba(247,92,92,1) 44.9%, rgba(108,0,96,0.97) 93.8% );
     background-position: center;
     background-size: cover;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, .4);
+}
+
+.current-score {
+    display: inline-block;
+    min-width: 200px;
+    padding: 15px 30px;
+    margin-top: 100px;
+    border-radius: 10px;
+    background-color: rgba(247,92,92,1);
 }
 
 .active, .winner {
@@ -32,7 +48,7 @@ body {
             width: 15px;
             height: 15px;
             border-radius: 50%;
-            background-color: red;
+            background-color: rgba(247,92,92,1);
         }
     }
 }
@@ -43,23 +59,18 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     button {
-        background: none;
+        display: block;
+        padding: 10px 20px;
+        margin: 10px auto;
+        border-radius: 20px;
+        background-color: #fff;
         border: none;
         outline: none;
-        text-transform: uppercase;
-        font-weight: 300;
-        display: inline-block;
-        text-align: center;
         cursor: pointer;
-        i {
-            transition: all 250ms;
-            margin-right: 5px;
-        }
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, .1);
+        transition: all 100ms;
         &:hover {
-            font-weight: 600;
-            i {
-                margin-right: 15px;
-            }
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, .05); 
         }
     }
 }
@@ -69,8 +80,8 @@ body {
     margin: auto;
     width: 100px;
     height: 100px;
-    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
-    &-content {
+    box-shadow: 0px 0 30px rgba(0, 0, 0, .15);
+    &-container {
         margin: 70px auto;
         height: 100px;
     }
