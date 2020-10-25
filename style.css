@@ -2,7 +2,7 @@
 body {
   font-family: "Nunito";
   color: #333;
-  background-image: radial-gradient(circle 1294px at -15.5% 23.8%, #ffce95 0%, #f75c5c 44.9%, rgba(108, 0, 96, 0.97) 93.8%);
+  background-image: radial-gradient(circle 1000px at 0 25%, #af3d47 0%, #f75c5c 44.9%, rgba(150, 20, 45, 0.97) 93.8%);
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -73,7 +73,12 @@ body {
 }
 
 .actions button:hover {
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.actions button:active {
+  transform: translateY(1px);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .dice {
