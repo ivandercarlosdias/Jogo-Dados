@@ -54,7 +54,7 @@
             scores[currentPlayer] += currentScore;
             document.querySelector(`#score-${currentPlayer}`).textContent = scores[currentPlayer];
             // Verifica se o jogador atingiu 100 pontos
-            if (scores[currentPlayer] >= 30) {
+            if (scores[currentPlayer] >= 100) {
                 playing = false;
                 document.querySelector(`#name-${currentPlayer}`).textContent = "🥇 WINNER";
                 document.querySelector(`.player-${currentPlayer}`).classList.toggle("winner");
