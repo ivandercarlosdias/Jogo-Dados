@@ -1,6 +1,6 @@
 "use strict";
 
-(function (){
+(function() {
     // DOM
     const dice = document.querySelector(".dice");
     const btnPlay = document.querySelector(".btn-play");
@@ -11,7 +11,6 @@
     let scores, playing, currentScore, currentPlayer;
 
     // Inicializa valores
-    initValues();
     const initValues = function() {
         scores = [0, 0];
         playing = true;
@@ -29,7 +28,8 @@
         document.querySelector(`.player-0`).classList.add("active");
         document.querySelector(`.player-1`).classList.remove("active");
     }
-
+    initValues();
+    
     // Novo jogo
     btnNew.addEventListener("click", initValues);
 
