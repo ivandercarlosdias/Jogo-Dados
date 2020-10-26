@@ -28,6 +28,22 @@ let currentPlayer= 0;
 // Inicializando
 initValues();
 
+const switchPlayer = function() {
+    currentScore = 0
+    document.querySelector(`#current-${currentPlayer}`).textContent = currentScore;
+    // e passa a vez
+    currentPlayer = currentPlayer === 0 ? 1 : 0;
+    player0.classList.toggle("active");
+    player1.classList.toggle("active");
+}
+
+// Passar a vez
+btnHold.addEventListener("click", function() {
+    scores[currentPlayer] += currentScore;
+    document.querySelector(`#score-${currentPlayer}`).textContent = scores[currentPlayer];
+    switchPlayer();
+});
+
 // Jogar dado
 btnPlay.addEventListener("click", function() {
     const dice = Math.trunc(Math.random() * 6) + 1;
@@ -38,11 +54,6 @@ btnPlay.addEventListener("click", function() {
         currentScore += dice;
         document.querySelector(`#current-${currentPlayer}`).textContent = currentScore;
     } else {
-        currentScore = 0
-        document.querySelector(`#current-${currentPlayer}`).textContent = currentScore;
-        // e passa a vez
-        currentPlayer = currentPlayer === 0 ? 1 : 0;
-        player0.classList.toggle("active");
-        player1.classList.toggle("active");
+        switchPlayer();
     }
 });
